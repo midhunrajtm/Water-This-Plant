@@ -6,7 +6,7 @@ class User {
   final String avatarUrl;
   final String bio;
   final String coverUrl;
-  final int totalDrops;
+  final int totalActions;
   final double totalDonated;
   final int causesSupported;
   final int peopleReached;
@@ -22,7 +22,7 @@ class User {
     this.avatarUrl = '',
     this.bio = '',
     this.coverUrl = '',
-    this.totalDrops = 0,
+    this.totalActions = 0,
     this.totalDonated = 0.0,
     this.causesSupported = 0,
     this.peopleReached = 0,

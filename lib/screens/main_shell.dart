@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:water_this_plant/screens/home_tab.dart';
 import 'package:water_this_plant/screens/discover_tab.dart';
 import 'package:water_this_plant/screens/create_post_screen.dart';
-import 'package:water_this_plant/screens/water_drops_screen.dart';
+import 'package:water_this_plant/screens/impact_screen.dart';
 import 'package:water_this_plant/screens/profile_screen.dart';
 
 class MainShell extends StatefulWidget {
@@ -35,7 +35,7 @@ class _MainShellState extends State<MainShell> {
           HomeTab(),
           DiscoverTab(),
           SizedBox.shrink(),
-          WaterDropsScreen(),
+          ImpactScreen(),
           ProfileScreen(),
         ],
       ),
@@ -59,7 +59,7 @@ class _MainShellState extends State<MainShell> {
             BottomNavigationBarItem(icon: Icon(Icons.home_outlined), activeIcon: Icon(Icons.home_rounded), label: 'Home'),
             BottomNavigationBarItem(icon: Icon(Icons.explore_outlined), activeIcon: Icon(Icons.explore_rounded), label: 'Discover'),
             BottomNavigationBarItem(icon: Icon(Icons.add_circle_outlined), activeIcon: Icon(Icons.add_circle_rounded), label: 'Create'),
-            BottomNavigationBarItem(icon: Icon(Icons.water_drop_outlined), activeIcon: Icon(Icons.water_drop_rounded), label: 'Drops'),
+            BottomNavigationBarItem(icon: Icon(Icons.eco_outlined), activeIcon: Icon(Icons.eco_rounded), label: 'Impact'),
             BottomNavigationBarItem(icon: Icon(Icons.person_outlined), activeIcon: Icon(Icons.person_rounded), label: 'Profile'),
           ],
         ),

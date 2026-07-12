@@ -146,9 +146,9 @@ class _CreatePostScreenState extends State<CreatePostScreen> {
                   child: Container(
                     padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
                     decoration: BoxDecoration(
-                      color: isSelected ? const Color(0xFF0D9488).withValues(alpha: 0.1) : const Color(0xFFF1F5F9),
+                      color: isSelected ? const Color(0xFF059669).withValues(alpha: 0.1) : const Color(0xFFF1F5F9),
                       borderRadius: BorderRadius.circular(12),
-                      border: isSelected ? Border.all(color: const Color(0xFF0D9488)) : null,
+                      border: isSelected ? Border.all(color: const Color(0xFF059669)) : null,
                     ),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
@@ -157,7 +157,7 @@ class _CreatePostScreenState extends State<CreatePostScreen> {
                         const SizedBox(width: 6),
                         Text(type, style: TextStyle(
                           fontWeight: FontWeight.w500,
-                          color: isSelected ? const Color(0xFF0D9488) : const Color(0xFF64748B),
+                          color: isSelected ? const Color(0xFF059669) : const Color(0xFF64748B),
                           fontSize: 13,
                         )),
                       ],

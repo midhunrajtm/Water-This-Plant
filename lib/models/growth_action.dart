@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class WaterDrop {
+class GrowthAction {
   final String id;
   final String userId;
   final String? causeId;
@@ -13,7 +13,7 @@ class WaterDrop {
   final String type;
   final String message;
 
-  const WaterDrop({
+  const GrowthAction({
     required this.id,
     required this.userId,
     this.causeId,
@@ -30,7 +30,7 @@ class WaterDrop {
   IconData get typeIcon {
     switch (type) {
       case 'donation':
-        return Icons.water_drop_rounded;
+        return Icons.eco_rounded;
       case 'share':
         return Icons.share_rounded;
       case 'like':
@@ -42,7 +42,7 @@ class WaterDrop {
       case 'volunteer':
         return Icons.handshake_rounded;
       default:
-        return Icons.water_drop_rounded;
+        return Icons.eco_rounded;
     }
   }
 }

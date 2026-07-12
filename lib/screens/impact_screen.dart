@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:water_this_plant/data/mock_data.dart';
-import 'package:water_this_plant/models/water_drop.dart';
+import 'package:water_this_plant/models/growth_action.dart';
 
-class WaterDropsScreen extends StatelessWidget {
-  const WaterDropsScreen({super.key});
+class ImpactScreen extends StatelessWidget {
+  const ImpactScreen({super.key});
 
   String _formatDate(DateTime dt) {
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -19,17 +19,17 @@ class WaterDropsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final user = MockData.currentUser;
-    final drops = MockData.userDrops(user.id);
+    final actions = MockData.userActions(user.id);
     final totalPoints = MockData.userEngagementPoints(user.id);
-    final level = MockData.getUserLevel(user.totalDrops);
+    final level = MockData.getUserLevel(user.totalActions);
     final progress = MockData.getLevelProgress(totalPoints);
 
     final badges = <Map<String, dynamic>>[
-      {'icon': Icons.favorite_rounded, 'label': 'First Like', 'earned': drops.any((d) => d.type == 'like')},
-      {'icon': Icons.chat_bubble_rounded, 'label': 'Commenter', 'earned': drops.any((d) => d.type == 'comment')},
-      {'icon': Icons.share_rounded, 'label': 'Sharer', 'earned': drops.any((d) => d.type == 'share')},
-      {'icon': Icons.bookmark_rounded, 'label': 'Collector', 'earned': drops.any((d) => d.type == 'save')},
-      {'icon': Icons.water_drop_rounded, 'label': 'Supporter', 'earned': drops.any((d) => d.type == 'donation')},
+      {'icon': Icons.favorite_rounded, 'label': 'First Like', 'earned': actions.any((d) => d.type == 'like')},
+      {'icon': Icons.chat_bubble_rounded, 'label': 'Commenter', 'earned': actions.any((d) => d.type == 'comment')},
+      {'icon': Icons.share_rounded, 'label': 'Sharer', 'earned': actions.any((d) => d.type == 'share')},
+      {'icon': Icons.bookmark_rounded, 'label': 'Collector', 'earned': actions.any((d) => d.type == 'save')},
+      {'icon': Icons.eco_rounded, 'label': 'Supporter', 'earned': actions.any((d) => d.type == 'donation')},
       {'icon': Icons.rocket_launch_rounded, 'label': 'Rising Star', 'earned': totalPoints >= 1000},
     ];
 
@@ -63,7 +63,7 @@ class WaterDropsScreen extends StatelessWidget {
                     color: Colors.white.withValues(alpha: 0.2),
                     shape: BoxShape.circle,
                   ),
-                  child: const Icon(Icons.water_drop_rounded, size: 30, color: Colors.white),
+                  child: const Icon(Icons.eco_rounded, size: 30, color: Colors.white),
                 ),
                 const SizedBox(height: 12),
                 Text(
@@ -84,7 +84,7 @@ class WaterDropsScreen extends StatelessWidget {
                       const Icon(Icons.local_fire_department_rounded, color: Colors.amber, size: 18),
                       const SizedBox(width: 6),
                       Text(
-                        'Level $level Creator',
+                        'Level $level Grower',
                         style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 13),
                       ),
                     ],
@@ -109,9 +109,9 @@ class WaterDropsScreen extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    _item('${user.totalDrops}', 'Drops'),
-                    _item('${MockData.userDropCount(user.id)}', 'Donations'),
-                    _item('${drops.length}', 'Actions'),
+                    _item('${user.totalActions}', 'Actions'),
+                    _item('${MockData.userDonationCount(user.id)}', 'Donations'),
+                    _item('${actions.length}', 'Engagements'),
                   ],
                 ),
               ],
@@ -166,12 +166,12 @@ class WaterDropsScreen extends StatelessWidget {
           const SizedBox(height: 24),
           const Text('Activity', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Color(0xFF0F172A))),
           const SizedBox(height: 12),
-          ...drops.map((WaterDrop drop) {
-            final iconColor = drop.type == 'donation' ? const Color(0xFF0D9488)
-                : drop.type == 'like' ? Colors.red
-                : drop.type == 'comment' ? const Color(0xFF0284C7)
-                : drop.type == 'share' ? const Color(0xFF8B5CF6)
-                : drop.type == 'save' ? const Color(0xFFD97706)
+          ...actions.map((GrowthAction action) {
+            final iconColor = action.type == 'donation' ? const Color(0xFF0D9488)
+                : action.type == 'like' ? Colors.red
+                : action.type == 'comment' ? const Color(0xFF0284C7)
+                : action.type == 'share' ? const Color(0xFF8B5CF6)
+                : action.type == 'save' ? const Color(0xFFD97706)
                 : const Color(0xFF0D9488);
             return Container(
               margin: const EdgeInsets.only(bottom: 10),
@@ -196,7 +196,7 @@ class WaterDropsScreen extends StatelessWidget {
                       color: iconColor.withValues(alpha: 0.1),
                       borderRadius: BorderRadius.circular(12),
                     ),
-                    child: Icon(drop.typeIcon, color: iconColor, size: 20),
+                    child: Icon(action.typeIcon, color: iconColor, size: 20),
                   ),
                   const SizedBox(width: 12),
                   Expanded(
@@ -204,7 +204,7 @@ class WaterDropsScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          drop.message.isNotEmpty ? drop.message : '${drop.type[0].toUpperCase()}${drop.type.substring(1)} action',
+                          action.message.isNotEmpty ? action.message : '${action.type[0].toUpperCase()}${action.type.substring(1)} action',
                           style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 13, color: Color(0xFF0F172A)),
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
@@ -212,16 +212,16 @@ class WaterDropsScreen extends StatelessWidget {
                         const SizedBox(height: 2),
                         Row(
                           children: [
-                            Text(_formatDate(drop.timestamp),
+                            Text(_formatDate(action.timestamp),
                               style: const TextStyle(fontSize: 11, color: Color(0xFF94A3B8))),
-                            if (drop.points > 0) ...[
+                            if (action.points > 0) ...[
                               const SizedBox(width: 8),
-                              Text('+${drop.points} pts',
+                              Text('+${action.points} pts',
                                 style: const TextStyle(fontSize: 11, color: Color(0xFF0D9488), fontWeight: FontWeight.w600)),
                             ],
-                            if (drop.amount > 0) ...[
+                            if (action.amount > 0) ...[
                               const SizedBox(width: 8),
-                              Text('\$${drop.amount.toStringAsFixed(0)}',
+                              Text('\$${action.amount.toStringAsFixed(0)}',
                                 style: const TextStyle(fontSize: 11, color: Color(0xFF0D9488), fontWeight: FontWeight.w600)),
                             ],
                           ],

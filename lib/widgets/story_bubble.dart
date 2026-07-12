@@ -9,7 +9,7 @@ class StoryBubble extends StatelessWidget {
 
   Color _categoryColor(String cat) {
     switch (cat) {
-      case 'water': return const Color(0xFF0D9488);
+      case 'community': return const Color(0xFF0D9488);
       case 'environment': return const Color(0xFF059669);
       case 'agriculture': return const Color(0xFFD97706);
       case 'relief': return const Color(0xFFDC2626);
@@ -38,7 +38,7 @@ class StoryBubble extends StatelessWidget {
                 gradient: story.isViewed
                     ? LinearGradient(colors: [Colors.grey[400]!, Colors.grey[300]!])
                     : LinearGradient(
-                        colors: [color, const Color(0xFF059669)],
+                        colors: [color, const Color(0xFF0D9488)],
                       ),
               ),
               child: Container(

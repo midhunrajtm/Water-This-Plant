@@ -1,6 +1,6 @@
 # Water This Plant — Project Context
 
-> A Flutter demo app: a social media platform (Instagram/TikTok style) where user engagement supports verified beneficiaries.
+> A Flutter demo social-impact content platform. A plant-themed metaphor for collective growth — every scroll, like, share, and donation helps a cause flourish.
 > **Tagline:** *Where Every Scroll Creates Impact*
 
 ---
@@ -24,27 +24,27 @@
 lib/
 ├── main.dart                          # Entry point → LoginScreen
 ├── theme/
-│   └── app_theme.dart                 # Global theme (teal/emerald palette, JetBrains Mono)
+│   └── app_theme.dart                 # Global theme (emerald/teal plant palette, JetBrains Mono)
 ├── models/
-│   ├── user.dart                      # User (donor/beneficiary/partner)
+│   ├── user.dart                      # User (supporter/beneficiary/partner)
 │   ├── post.dart                      # Social media post
 │   ├── story.dart                     # Story bubble
 │   ├── cause.dart                     # Cause project (profile feature only)
-│   ├── water_drop.dart                # Engagement action / donation
+│   ├── growth_action.dart             # Engagement action / donation (formerly WaterDrop)
 │   ├── fund_transaction.dart          # Financial transparency record
 │   └── ad.dart                        # Sponsored content
 ├── data/
-│   └── mock_data.dart                 # ALL hardcoded demo data (6 users, 7 causes, 10 stories, 18 posts, 3 ads, 11 drops, 12 txns)
+│   └── mock_data.dart                 # ALL hardcoded demo data (6 users, 7 causes, 10 stories, 18 posts, 3 ads, 11 actions, 12 txns)
 ├── screens/
 │   ├── login_screen.dart              # Gradient header + pre-filled form → RoleSelection
-│   ├── role_selection_screen.dart     # 3 animated role cards → MainShell
-│   ├── main_shell.dart                # 5-tab BottomNavigationBar container (Home/Discover/Create/Drops/Profile)
+│   ├── role_selection_screen.dart     # 3 animated role cards (Supporter/Beneficiary/Partner) → MainShell
+│   ├── main_shell.dart                # 5-tab BottomNavigationBar (Home/Discover/Create/Impact/Profile)
 │   ├── home_tab.dart                  # Instagram feed: stories row + posts + ads (every 5th)
 │   ├── discover_tab.dart              # Explore: search + trending creators + "For You" grid
 │   ├── create_post_screen.dart        # Modal post composer: media + caption + content type
 │   ├── profile_screen.dart            # Current user profile: stats + posts/reels/about tabs
 │   ├── beneficiary_profile_screen.dart # Public profile: header + cause card(s) + posts/reels/about tabs
-│   ├── water_drops_screen.dart        # Impact dashboard: points/levels + achievements + activity feed
+│   ├── impact_screen.dart             # Impact dashboard: points/levels + achievements + activity feed
 │   └── transparency_dashboard_screen.dart # Fund tracking: summary cards + spending breakdown + transactions
 └── widgets/
     ├── story_bubble.dart              # Circular gradient avatar with seen/unseen ring
@@ -66,9 +66,9 @@ RoleSelectionScreen
     ▼
 MainShell  ←── 5-tab BottomNavigationBar
     ├── [0] HomeTab        — Instagram feed (stories + posts + ads)
-    ├── [1] DiscoverTab    — Search + trending creators + For You grid
+    ├── [1] DiscoverTab    — Explore search + trending + For You grid
     ├── [2] (Create)       — Pushes CreatePostScreen modally
-    ├── [3] WaterDropsScreen  — Impact dashboard
+    ├── [3] ImpactScreen   — Impact dashboard
     └── [4] ProfileScreen  — Current user profile
 
 From any post avatar tap:
@@ -85,9 +85,9 @@ From any post avatar tap:
 | id | String | Primary key |
 | name | String | Display name |
 | email | String | |
-| role | String | `'donor'`, `'beneficiary'`, or `'partner'` |
+| role | String | `'supporter'`, `'beneficiary'`, or `'partner'` |
 | bio | String | |
-| totalDrops | int | Lifetime engagement count |
+| totalActions | int | Lifetime engagement count (formerly totalDrops) |
 | totalDonated | double | Monetary total |
 | causesSupported | int | |
 | peopleReached | int | |
@@ -103,7 +103,7 @@ From any post avatar tap:
 | userName | String | Denormalized for feed |
 | userRole | String | |
 | caption | String | Full caption with hashtags |
-| category | String | `'water'`, `'environment'`, `'agriculture'`, `'relief'` |
+| category | String | `'community'`, `'environment'`, `'agriculture'`, `'relief'` |
 | timestamp | DateTime | |
 | likes | int | |
 | comments | int | |
@@ -129,20 +129,20 @@ From any post avatar tap:
 | goal, raised | double | |
 | beneficiaryId, beneficiaryName | String | |
 | supporters | int | |
-| category | String | Matches post categories |
+| category | String | `'Community'`, `'environment'`, `'agriculture'`, `'relief'` |
 | progress | double | Computed getter (`raised/goal`) |
 
-### WaterDrop
+### GrowthAction (formerly WaterDrop)
 | Field | Type | Notes |
 |---|---|---|
 | id, userId | String | |
-| causeId, causeTitle | String? | For donation-type drops |
-| targetUserId, targetPostId | String? | For engagement-type drops |
+| causeId, causeTitle | String? | For donation-type actions |
+| targetUserId, targetPostId | String? | For engagement-type actions |
 | amount | double | Monetary value (donations) |
 | points | int | Engagement points (likes/comments/shares) |
 | type | String | `'donation'`, `'like'`, `'comment'`, `'share'`, `'save'`, `'volunteer'` |
 | message | String | Optional user note |
-| typeIcon | IconData | Computed getter |
+| typeIcon | IconData | Computed getter (uses `Icons.eco_rounded` base) |
 
 ### FundTransaction
 | Field | Type | Notes |
@@ -169,20 +169,20 @@ All data is in `lib/data/mock_data.dart` as `static final` lists.
 
 | List | Count | Notes |
 |---|---|---|
-| `users` | 6 | 2 donors, 2 beneficiaries, 2 partners; ids `u1`–`u6` |
-| `causes` | 7 | Linked to `u2` (Mama Fatima), `u3` (CleanWater NGO), `u4` (James Mwangi) |
+| `users` | 6 | 2 supporters, 2 beneficiaries, 2 partners; ids `u1`–`u6` |
+| `causes` | 7 | Linked to `u2` (Mama Fatima), `u3` (BridgeBuilders Africa), `u4` (James Mwangi) |
 | `stories` | 10 | Mix of viewed/unviewed |
 | `posts` | 18 | Types: 8 photos, 2 videos, 3 reels, 3 artwork, 1 music, 1 update |
 | `ads` | 3 | Inserted every 5th post in feed |
-| `waterDrops` | 11 | Mix of donations, likes, comments, shares, saves |
+| `growthActions` | 11 | Mix of donations, likes, comments, shares, saves (formerly waterDrops) |
 | `transactions` | 12 | For transparency dashboard |
 
 **Helper methods on `MockData`:**
-- `currentUser` → `users[0]` (Sarah Green, donor)
+- `currentUser` → `users[0]` (Sarah Green, supporter)
 - `userById(id)` → quick lookup
-- `userPosts(id)` / `userStories(id)` / `userDrops(id)` / `beneficiaryCauses(id)`
-- `userEngagementPoints(id)` → sums `points` across drops
-- `getUserLevel(dropCount)` / `getLevelProgress(points)` → gamification logic
+- `userPosts(id)` / `userStories(id)` / `userActions(id)` / `beneficiaryCauses(id)`
+- `userEngagementPoints(id)` → sums `points` across actions
+- `getUserLevel(actionCount)` / `getLevelProgress(points)` → gamification logic
 
 ---
 
@@ -195,9 +195,12 @@ All data is in `lib/data/mock_data.dart` as `static final` lists.
 - "Continue as Guest" text button
 
 ### 2. RoleSelectionScreen
-- Title "Who are you?" + 3 role cards (Donor/Beneficiary/Partner)
+- Title "Who are you?" + 3 role cards (Supporter/Beneficiary/Partner)
 - Cards have icons, titles, subtitles, and animated selected state
 - "Continue" button enabled only when a role is selected → `MainShell`
+- **Supporter**: browses posts, engages with content, views impact reports
+- **Beneficiary**: creates profile, maintains cause card, publishes updates
+- **Partner**: sponsors campaigns, matches donations, collaborates on initiatives
 
 ### 3. MainShell (Tab Container)
 - `IndexedStack` switches between 5 children (preserves scroll state)
@@ -261,11 +264,11 @@ All data is in `lib/data/mock_data.dart` as `static final` lists.
 - **CTA**: Teal "Support" button (not "Donate")
 - Only rendered on `BeneficiaryProfileScreen` — never in the feed
 
-### 12. WaterDropsScreen (Impact Dashboard)
-- **Summary card**: Gradient card with Impact Points count + Level badge + XP bar
-- **Stats row**: Drops / Donations / Actions
+### 12. ImpactScreen (formerly WaterDropsScreen)
+- **Summary card**: Gradient card with Impact Points count + Level badge (e.g. "Level 3 Grower") + XP bar
+- **Stats row**: Actions / Donations / Engagements
 - **Achievements**: Horizontal scroll of badge icons (First Like, Commenter, Sharer, Collector, Supporter, Rising Star) — earned/locked states
-- **Activity feed**: List of recent `WaterDrop` items with type icon, message, date, and points
+- **Activity feed**: List of recent `GrowthAction` items with type icon, message, date, and points
 
 ### 13. TransparencyDashboardScreen
 - 4 summary cards in 2x2 grid: Total Raised, Distributed, Admin, Impact
@@ -278,8 +281,8 @@ All data is in `lib/data/mock_data.dart` as `static final` lists.
 
 | Token | Hex | Usage |
 |---|---|---|
-| Primary | `#0D9488` (Teal-600) | CTAs, active nav, water category |
-| Secondary | `#059669` (Emerald-600) | Environment category |
+| Primary | `#059669` (Emerald-600) | CTAs, active nav, community category |
+| Secondary | `#0D9488` (Teal-600) | Environment category |
 | Accent | `#0284C7` (Sky-600) | Partner role, logistics |
 | Background | `#F8FAFC` (Slate-50) | Scaffold background |
 | Surface | `#FFFFFF` | Cards, bottom nav |
@@ -288,23 +291,25 @@ All data is in `lib/data/mock_data.dart` as `static final` lists.
 | Border/Light | `#E2E8F0`, `#F1F5F9` | Dividers, input fills |
 | Agriculture | `#D97706` (Amber) | Farming category |
 | Relief | `#DC2626` (Red) | Emergency category |
-| Verified | `#0D9488` | Blue checkmark |
+| Verified | `#059669` | Verified badge |
 
 ---
 
 ## Key Design Decisions
 
-1. **Social media first**: The app looks and feels like Instagram. Content types (photo, reel, artwork, music) dominate. Fundraising is a background feature surfaced only on beneficiary profiles.
+1. **Social-impact content platform**: The app looks and feels like Instagram. Content types (photo, reel, artwork, music) dominate. Fundraising is a background feature surfaced only on beneficiary profiles. "Plant" is a metaphor for collective impact — every action helps a cause grow.
 
 2. **Cause Cards are profile features**: They appear between the bio and the tab bar on beneficiary profiles — similar to Instagram's "Link in bio" or pinned stories.
 
-3. **Water Drops = engagement + donations**: Points are earned through likes, comments, shares, and saves — not just money. Level system gamifies participation.
+3. **Growth Actions = engagement + donations**: Points (called Impact Points) are earned through likes, comments, shares, saves, and donations. Level system gamifies participation — users progress from "Level 1 Grower" to "Level 5 Grower".
 
-4. **All data is hardcoded**: `MockData` class in `mock_data.dart` holds everything. No API, no Firebase, no backend.
+4. **Roles**: Supporters browse and engage, Beneficiaries create and share, Partners sponsor and amplify. No more "donor" terminology — the focus is on holistic support.
 
-5. **No state management library**: Uses `setState` + `StatefulWidget` + `IndexedStack` for tab persistence.
+5. **All data is hardcoded**: `MockData` class in `mock_data.dart` holds everything. No API, no Firebase, no backend.
 
-6. **JetBrains Mono** applied globally via `GoogleFonts.jetBrainsMono()` in the theme.
+6. **No state management library**: Uses `setState` + `StatefulWidget` + `IndexedStack` for tab persistence.
+
+7. **JetBrains Mono** applied globally via `GoogleFonts.jetBrainsMono()` in the theme.
 
 ---
 

@@ -8,7 +8,7 @@ class AdCard extends StatelessWidget {
 
   Color _categoryColor(String cat) {
     switch (cat) {
-      case 'water': return const Color(0xFF0D9488);
+      case 'community': return const Color(0xFF0D9488);
       case 'environment': return const Color(0xFF059669);
       case 'agriculture': return const Color(0xFFD97706);
       case 'relief': return const Color(0xFFDC2626);
@@ -18,11 +18,11 @@ class AdCard extends StatelessWidget {
 
   IconData _categoryIcon(String cat) {
     switch (cat) {
-      case 'water': return Icons.water_drop_rounded;
+      case 'community': return Icons.eco_rounded;
       case 'environment': return Icons.eco_rounded;
       case 'agriculture': return Icons.grass_rounded;
       case 'relief': return Icons.volunteer_activism_rounded;
-      default: return Icons.water_drop_rounded;
+      default: return Icons.eco_rounded;
     }
   }
 

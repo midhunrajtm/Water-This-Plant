@@ -24,7 +24,7 @@ class Cause {
     this.beneficiaryAvatar = '',
     this.status = 'active',
     this.supporters = 0,
-    this.category = 'General',
+    this.category = 'Community',
   });
 
   double get progress => goal > 0 ? raised / goal : 0.0;

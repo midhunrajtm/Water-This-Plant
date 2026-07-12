@@ -9,7 +9,7 @@ class Ad {
     required this.id,
     required this.title,
     required this.description,
-    this.category = 'water',
+    this.category = 'community',
     this.ctaText = 'Learn More',
   });
 }

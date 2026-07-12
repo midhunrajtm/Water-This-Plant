@@ -59,7 +59,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       shape: BoxShape.circle,
                     ),
                     child: const Icon(
-                      Icons.water_drop_rounded,
+                      Icons.eco_rounded,
                       size: 50,
                       color: Colors.white,
                     ),

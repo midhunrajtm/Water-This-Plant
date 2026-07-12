@@ -13,21 +13,21 @@ class _RoleSelectionScreenState extends State<RoleSelectionScreen> {
 
   final List<Map<String, dynamic>> _roles = [
     {
-      'icon': Icons.water_drop_rounded,
-      'title': 'Donor',
-      'subtitle': 'Contribute water drops to causes you care about',
+      'icon': Icons.favorite_outline_rounded,
+      'title': 'Supporter',
+      'subtitle': 'Browse posts, engage with content, and watch your impact grow',
       'color': const Color(0xFF0D9488),
     },
     {
       'icon': Icons.eco_rounded,
       'title': 'Beneficiary',
-      'subtitle': 'Receive support for your community water projects',
+      'subtitle': 'Share your story, maintain a cause card, and publish updates',
       'color': const Color(0xFF059669),
     },
     {
       'icon': Icons.handshake_rounded,
       'title': 'Partner',
-      'subtitle': 'Collaborate on impact-driven initiatives',
+      'subtitle': 'Sponsor campaigns, match donations, or collaborate on initiatives',
       'color': const Color(0xFF0284C7),
     },
   ];

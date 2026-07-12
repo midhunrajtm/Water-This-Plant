@@ -18,7 +18,7 @@ class _DiscoverTabState extends State<DiscoverTab> {
 
   Color _typeColor(String t) {
     switch (t) {
-      case 'Photo': return const Color(0xFF0D9488);
+      case 'Photo': return const Color(0xFF059669);
       case 'Reel': return const Color(0xFFDC2626);
       case 'Artwork': return const Color(0xFF8B5CF6);
       case 'Music': return const Color(0xFFD97706);
@@ -174,14 +174,14 @@ class _DiscoverTabState extends State<DiscoverTab> {
               ),
               itemBuilder: (context, index) {
                 final post = _filteredPosts[index];
-                Color color;
-                switch (post.category) {
-                  case 'water': color = const Color(0xFF0D9488); break;
-                  case 'environment': color = const Color(0xFF059669); break;
-                  case 'agriculture': color = const Color(0xFFD97706); break;
-                  case 'relief': color = const Color(0xFFDC2626); break;
-                  default: color = const Color(0xFF0D9488);
-                }
+    Color color;
+    switch (post.category) {
+      case 'community': color = const Color(0xFF0D9488); break;
+      case 'environment': color = const Color(0xFF059669); break;
+      case 'agriculture': color = const Color(0xFFD97706); break;
+      case 'relief': color = const Color(0xFFDC2626); break;
+      default: color = const Color(0xFF0D9488);
+    }
                 return Container(
                   decoration: BoxDecoration(
                     gradient: LinearGradient(colors: [color, color.withValues(alpha: 0.6)]),
@@ -189,7 +189,7 @@ class _DiscoverTabState extends State<DiscoverTab> {
                   ),
                   child: Stack(
                     children: [
-                      Center(child: Icon(Icons.water_drop_rounded, color: Colors.white.withValues(alpha: 0.25), size: 24)),
+                      Center(child: Icon(Icons.eco_rounded, color: Colors.white.withValues(alpha: 0.25), size: 24)),
                       if (post.type == 'reel')
                         Positioned(
                           bottom: 4, right: 4,

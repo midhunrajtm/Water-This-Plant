@@ -21,7 +21,7 @@ class Post {
     required this.userName,
     required this.userRole,
     required this.caption,
-    this.category = 'water',
+    this.category = 'community',
     required this.timestamp,
     required this.likes,
     required this.comments,

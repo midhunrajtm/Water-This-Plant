@@ -14,7 +14,7 @@ class FundTransaction {
     required this.amount,
     required this.description,
     required this.date,
-    this.category = 'General',
+    this.category = 'Community',
   });
 
   bool get isIncoming => category == 'funds received';

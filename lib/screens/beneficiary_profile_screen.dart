@@ -32,7 +32,7 @@ class _BeneficiaryProfileScreenState extends State<BeneficiaryProfileScreen> wit
     switch (role) {
       case 'beneficiary': return const Color(0xFF0D9488);
       case 'partner': return const Color(0xFF0284C7);
-      case 'donor': return const Color(0xFF8B5CF6);
+      case 'supporter': return const Color(0xFF8B5CF6);
       default: return const Color(0xFF0D9488);
     }
   }
@@ -182,7 +182,7 @@ class _BeneficiaryProfileScreenState extends State<BeneficiaryProfileScreen> wit
                       padding: const EdgeInsets.only(bottom: 10),
                       child: Row(
                         children: [
-                          const Icon(Icons.water_drop_rounded, size: 16, color: Color(0xFF0D9488)),
+                          const Icon(Icons.eco_rounded, size: 16, color: Color(0xFF0D9488)),
                           const SizedBox(width: 6),
                           const Text('Cause', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Color(0xFF0F172A))),
                         ],
@@ -268,7 +268,7 @@ class _BeneficiaryProfileScreenState extends State<BeneficiaryProfileScreen> wit
           child: Stack(
             alignment: Alignment.bottomCenter,
             children: [
-              Center(child: Icon(Icons.water_drop_rounded, color: Colors.white.withValues(alpha: 0.25), size: 28)),
+              Center(child: Icon(Icons.eco_rounded, color: Colors.white.withValues(alpha: 0.25), size: 28)),
               Container(
                 padding: const EdgeInsets.symmetric(vertical: 3, horizontal: 4),
                 color: Colors.black.withValues(alpha: 0.4),
@@ -297,7 +297,7 @@ class _BeneficiaryProfileScreenState extends State<BeneficiaryProfileScreen> wit
           const Text('About', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Color(0xFF0F172A))),
           const SizedBox(height: 16),
           _infoRow(Icons.people_outlined, 'People Reached', '${user.peopleReached}'),
-          _infoRow(Icons.water_drop_outlined, 'Water Drops', '${user.totalDrops}'),
+          _infoRow(Icons.eco_outlined, 'Actions', '${user.totalActions}'),
           _infoRow(Icons.monetization_on_outlined, 'Total Raised', '\$${user.totalDonated.toStringAsFixed(0)}'),
           _infoRow(Icons.mail_outline, 'Email', user.email),
         ],

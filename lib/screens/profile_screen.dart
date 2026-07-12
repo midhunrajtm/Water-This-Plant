@@ -223,14 +223,14 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
       ),
       itemBuilder: (context, index) {
         final post = items[index];
-        Color color;
-        switch (post.category) {
-          case 'water': color = const Color(0xFF0D9488); break;
-          case 'environment': color = const Color(0xFF059669); break;
-          case 'agriculture': color = const Color(0xFFD97706); break;
-          case 'relief': color = const Color(0xFFDC2626); break;
-          default: color = const Color(0xFF0D9488);
-        }
+    Color color;
+    switch (post.category) {
+      case 'community': color = const Color(0xFF0D9488); break;
+      case 'environment': color = const Color(0xFF059669); break;
+      case 'agriculture': color = const Color(0xFFD97706); break;
+      case 'relief': color = const Color(0xFFDC2626); break;
+      default: color = const Color(0xFF0D9488);
+    }
         return Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(colors: [color, color.withValues(alpha: 0.6)]),
@@ -238,7 +238,7 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
           child: Stack(
             alignment: Alignment.bottomCenter,
             children: [
-              Center(child: Icon(Icons.water_drop_rounded, color: Colors.white.withValues(alpha: 0.25), size: 28)),
+              Center(child: Icon(Icons.eco_rounded, color: Colors.white.withValues(alpha: 0.25), size: 28)),
               Container(
                 padding: const EdgeInsets.symmetric(vertical: 3, horizontal: 4),
                 color: Colors.black.withValues(alpha: 0.4),
@@ -266,7 +266,7 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
         children: [
           const Text('About', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Color(0xFF0F172A))),
           const SizedBox(height: 16),
-          _infoRow(Icons.water_drop_outlined, 'Water Drops', '${user.totalDrops}'),
+          _infoRow(Icons.eco_outlined, 'Actions', '${user.totalActions}'),
           _infoRow(Icons.monetization_on_outlined, 'Donated', '\$${user.totalDonated.toStringAsFixed(0)}'),
           _infoRow(Icons.favorite_outlined, 'Causes Supported', '${user.causesSupported}'),
           _infoRow(Icons.people_outlined, 'People Reached', '${user.peopleReached}'),

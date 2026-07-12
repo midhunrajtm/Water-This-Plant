@@ -26,7 +26,7 @@ class _FeedPostState extends State<FeedPost> {
 
   Color _catColor(String cat) {
     switch (cat) {
-      case 'water': return const Color(0xFF0D9488);
+      case 'community': return const Color(0xFF0D9488);
       case 'environment': return const Color(0xFF059669);
       case 'agriculture': return const Color(0xFFD97706);
       case 'relief': return const Color(0xFFDC2626);

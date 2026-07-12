@@ -9,7 +9,7 @@ class CauseCardWidget extends StatelessWidget {
 
   Color _color() {
     switch (cause.category) {
-      case 'water': return const Color(0xFF0D9488);
+      case 'Community': return const Color(0xFF0D9488);
       case 'environment': return const Color(0xFF059669);
       case 'agriculture': return const Color(0xFFD97706);
       case 'relief': return const Color(0xFFDC2626);
@@ -19,11 +19,11 @@ class CauseCardWidget extends StatelessWidget {
 
   IconData _icon() {
     switch (cause.category) {
-      case 'water': return Icons.water_drop_rounded;
+      case 'Community': return Icons.eco_rounded;
       case 'environment': return Icons.eco_rounded;
       case 'agriculture': return Icons.grass_rounded;
       case 'relief': return Icons.volunteer_activism_rounded;
-      default: return Icons.water_drop_rounded;
+      default: return Icons.eco_rounded;
     }
   }
 

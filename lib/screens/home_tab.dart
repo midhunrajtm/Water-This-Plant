@@ -52,7 +52,7 @@ class _HomeTabState extends State<HomeTab> {
         title: const Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(Icons.water_drop_rounded, color: Color(0xFF0D9488), size: 28),
+            Icon(Icons.eco_rounded, color: Color(0xFF0D9488), size: 28),
             SizedBox(width: 6),
             Text(
               'Water This Plant',

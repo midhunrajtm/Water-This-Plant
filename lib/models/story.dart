@@ -10,7 +10,7 @@ class Story {
     required this.id,
     required this.userId,
     required this.userName,
-    this.category = 'water',
+    this.category = 'community',
     this.isViewed = false,
     required this.postedAt,
   });
