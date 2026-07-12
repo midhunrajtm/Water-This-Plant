@@ -1,3 +1,1 @@
-# water_this_plant
-
-A new Flutter project.
+**Water This Plant – Where Every Scroll Creates Impact** is an Instagram-inspired social platform that transforms everyday engagement into meaningful support for verified causes. Supporters and beneficiaries can share photos, reels, artwork, music, and updates, while ad revenue and community contributions are distributed through a transparent and fair funding model. Beneficiaries showcase their needs using a dedicated Cause Card on their profile, ensuring that every view, like, comment, and scroll helps someone grow.
