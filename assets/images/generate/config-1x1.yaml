@@ -1,0 +1,44 @@
+bot: midjourney
+album: wtp-square
+download: true
+upscale: true
+variation: false
+thumbnail: true
+suffix: " --ar 1:1 --style raw --v 6.1"
+prompt:
+  - Minimalist leaf logo, emerald green to teal gradient, modern flat design, negative space suggests a water drop inside a sprout, clean white background, vector art --no text --iw 2
+  - Small potted plant with one leaf, simple friendly line-art style, dotted circular ripple radiating outward, emerald green on very light slate background, minimalist encouraging illustration --iw 2
+  - Profile photo of a woman late 20s warm brown skin, curly hair tied back, cream shirt, outdoor golden hour light, laughing at camera, shallow depth of field blurred green nature background, natural joyful portrait --s 250
+  - Portrait of a dignified woman in her 50s dark skin, grey-streaked hair wrapped in bright indigo and gold Senegalese headwrap, wearing colorful traditional fabric, wise kind hopeful expression, warm earth tone background --s 250
+  - Professional brand logo, stylized bridge arching between two tree silhouettes, clean modern vector, navy blue and teal, white background, sans-serif BB monogram optional --no text --iw 2
+  - Portrait of a man in his 30s dark brown skin, short black hair, close-trimmed beard, denim shirt, standing in green farm field at golden hour, holding a ripe tomato, broad proud smile, shallow depth of field --s 250
+  - Portrait of a woman in her early 30s light brown skin, long dark hair in a braid, paint speckles on cheek, art studio background with colorful canvases, holding a paintbrush, creatively inspired expression --s 250
+  - Professional brand logo, rising sun silhouette behind an acacia tree, letters KRF in clean modern sans-serif, warm orange and dark green colors, white background --no text --iw 2
+  - Majestic baobab tree silhouette against vibrant orange and pink sunrise, small houses in distance, soft cloud streaks, West African savanna, warm serene landscape photography --s 250
+  - Close-up of a small colorful kingfisher bird perched on a branch by a river, soft green and brown background, sharp focus on bright blue and orange feathers, natural lighting, wildlife photography --s 250
+  - Close-up ripe red tomatoes on the vine glistening with morning dew, green leaves framing the shot, warm side sunlight, shallow depth of field, vibrant appetizing food photography --s 250
+  - Vibrant community mural on a brick wall, abstract geometric patterns radiating outward from a central diamond shape, turquoise coral gold and ivory colors, street art aesthetic, daylight --s 250
+  - Bright modern classroom with wooden desks and chalkboard with lesson notes, sunlight streaming through large windows, children's art projects pinned to wall, clean hopeful educational photography --s 250
+  - Construction site with drilling rig against clear blue sky, workers in hard hats collaborating, red earth green equipment, sense of progress, motion blur for video feel, photojournalism style --s 250
+  - Circle of elders sitting under a large tree at dusk playing djembe drums, warm firelight illuminating faces, stars in darkening sky, traditional cultural atmospheric scene --s 250
+  - Golden hour African watering hole with elephants drinking, orange sky reflected in still water, silhouetted acacia trees framing the edges, serene majestic wildlife photography --s 250
+  - Dramatic sunset over a Kenyan farm, rows of crops leading to horizon, single figure standing looking at the sky, warm oranges and purples, cinematic wide-angle landscape --s 250
+  - Fluid art painting in progress on canvas, swirling greens golds and teals, paint drips and cells visible, abstract organic shapes suggesting leaves and growth, creative process shot --s 250
+  - Busy outdoor market in Kenya, colorful piles of fruits and vegetables on tables, people bargaining, canvas canopy overhead, bright sunlight, warm colors, energetic atmosphere --s 250
+  - Happy team photo of volunteers holding a banner that says 15000 SUPPORTERS, confetti, smiling faces, bright daylight, celebration milestone gratitude photograph --s 250
+  - Children's crayon drawings taped to a wall, colorful houses with oversized suns, stick figures and hand-drawn hearts, authentic child art style, innocent touching hopeful --s 250
+  - Hands playing an acoustic guitar by a rain-streaked window, soft moody lighting, raindrops on glass, warm interior light, intimate peaceful atmospheric photograph --s 250
+  - Drone aerial view of a new community building with blue roof surrounded by green fields and red dirt paths, people gather for opening ceremony, high-angle cinematic --s 250
+  - Farmer demonstrating irrigation techniques to a group of attentive villagers, gesturing toward rows of healthy crops, golden sunlight, knowledge-sharing community scene --s 250
+  - Close-up acrylic pour painting on circular canvas, swirling greens golds and pearlescent white, paint being dripped from cup, mesmerizing organic patterns --s 250
+  - Mysterious wide shot of a small African village at dawn with smoke rising from cooking fires, soft mist, a hand enters frame holding smartphone as if recording, teaser aesthetic --s 250
+  - Close-up portrait of a woman's profile looking at beautiful sunset, warm golden light on dark skin, simple elegant portrait photography --s 250
+  - Dew-covered spiderweb catching the morning light, shallow depth of field, magical delicate nature macro photography --s 250
+  - Close-up of hands holding a small tree sapling about to be planted, soil green leaves sunlight, symbolic of growth, heartwarming --s 250
+  - Hands holding a ripe ear of maize in a sunlit field, textured agricultural proud close-up --s 250
+  - Paintbrush dipped in bright green paint close-up, abstract and colorful, creative energy macro shot --s 250
+  - Close-up of a child in a classroom smiling and raising their hand, defocused classroom background, joyful learning candid photography --s 250
+  - Traditional West African djembe drum with carved details set on red earth, warm afternoon light, cultural musical still life --s 250
+  - Close-up of hands folding a warm blanket with a bowl of soup visible in background, comfort care relief candid --s 250
+  - Bee pollinating a yellow flower in a farm field, macro photography, soft green background, nature's cycle --s 250
+  - Leaf with pristine water droplets after rain, macro close-up, vibrant green fresh tranquil nature photography --s 250

@@ -1,0 +1,9 @@
+bot: midjourney
+album: wtp-login-bg
+download: true
+upscale: true
+variation: false
+thumbnail: true
+suffix: " --ar 5:3 --style raw --v 6.1"
+prompt:
+  - Abstract illustration of diverse hands reaching toward a glowing green sprout in the center, soft emerald to deep teal gradient background, small glowing particles orbiting like fireflies, flat style with soft gradients, unity growth collective action concept, warm emotional tone, manypixels undraw inspired style --s 250

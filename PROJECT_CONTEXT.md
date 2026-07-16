@@ -313,6 +313,27 @@ All data is in `lib/data/mock_data.dart` as `static final` lists.
 
 ---
 
+## Image Asset Manifest
+
+> A full audit and specification for every placeholder visual is in `assets/images/manifest.md`.
+> **53 image assets** are planned across 7 categories, each with 1×, 2×, and 3× resolution variants.
+
+| Category | Count | Format | Base (1×) Size |
+|----------|-------|--------|----------------|
+| Brand (logo, login BG, empty state) | 3 | PNG/JPG | 200-500×200-340 |
+| Avatars (6 users) | 6 | PNG | 200×200 |
+| Covers (6 users) | 6 | JPG | 500×200 |
+| Posts (18 posts) | 18 | JPG | 500×500 |
+| Stories (10 stories) | 10 | JPG | 200×200 |
+| Causes (7 causes) | 7 | JPG | 500×170 |
+| Ads (3 ads) | 3 | JPG | 500×170 |
+
+**Code integration**: All widgets (`feed_post`, `story_bubble`, `cause_card_widget`, `ad_card`, `profile_screen`, `beneficiary_profile_screen`, `discover_tab`, `create_post_screen`, `login_screen`) now reference asset paths via `AssetImage()`. When you drop the actual images into the `assets/images/` directories, everything will render them automatically.
+
+**Resolution variants**: Place at `assets/images/{category}/file.png` (1×), `assets/images/{category}/2.0x/file.png` (2×), and `assets/images/{category}/3.0x/file.png` (3×). Flutter detects the device pixel ratio and loads the appropriate variant.
+
+---
+
 ## Running the App
 
 ```bash
@@ -321,3 +342,5 @@ flutter run
 ```
 
 The app starts at `LoginScreen` with pre-filled demo credentials. Tap "Sign In" → select a role → enter the Instagram-style feed.
+
+> **Note**: Image assets have not been generated yet. The app currently references `assets/images/...` paths but the image files themselves do not exist yet. Run the app — it will use placeholder fallbacks within the widgets or show missing-image indicators until you populate the `assets/images/` directories per `manifest.md`.

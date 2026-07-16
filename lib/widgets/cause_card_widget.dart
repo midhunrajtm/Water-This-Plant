@@ -17,16 +17,6 @@ class CauseCardWidget extends StatelessWidget {
     }
   }
 
-  IconData _icon() {
-    switch (cause.category) {
-      case 'Community': return Icons.eco_rounded;
-      case 'environment': return Icons.eco_rounded;
-      case 'agriculture': return Icons.grass_rounded;
-      case 'relief': return Icons.volunteer_activism_rounded;
-      default: return Icons.eco_rounded;
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     final color = _color();
@@ -52,15 +42,24 @@ class CauseCardWidget extends StatelessWidget {
             height: 120,
             width: double.infinity,
             decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [color, color.withValues(alpha: 0.7)],
+              image: DecorationImage(
+                image: AssetImage(cause.imageUrl.isNotEmpty
+                    ? cause.imageUrl
+                    : 'assets/images/causes/${cause.id}.jpg'),
+                fit: BoxFit.cover,
               ),
               borderRadius: const BorderRadius.vertical(top: Radius.circular(15)),
             ),
             child: Stack(
               children: [
-                Center(
-                  child: Icon(_icon(), size: 48, color: Colors.white.withValues(alpha: 0.25)),
+                Container(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [Colors.transparent, Colors.black.withValues(alpha: 0.4)],
+                    ),
+                  ),
                 ),
                 Positioned(
                   top: 10,

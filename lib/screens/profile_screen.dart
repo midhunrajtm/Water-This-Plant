@@ -67,11 +67,9 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
                     children: [
                       CircleAvatar(
                         radius: 40,
-                        backgroundColor: const Color(0xFF0D9488).withValues(alpha: 0.2),
-                        child: Text(
-                          user.name[0],
-                          style: const TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: Color(0xFF0D9488)),
-                        ),
+                        backgroundImage: AssetImage(user.avatarUrl.isNotEmpty
+                            ? user.avatarUrl
+                            : 'assets/images/avatars/${user.id}.png'),
                       ),
                       const SizedBox(width: 24),
                       Expanded(
@@ -223,22 +221,16 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
       ),
       itemBuilder: (context, index) {
         final post = items[index];
-    Color color;
-    switch (post.category) {
-      case 'community': color = const Color(0xFF0D9488); break;
-      case 'environment': color = const Color(0xFF059669); break;
-      case 'agriculture': color = const Color(0xFFD97706); break;
-      case 'relief': color = const Color(0xFFDC2626); break;
-      default: color = const Color(0xFF0D9488);
-    }
-        return Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(colors: [color, color.withValues(alpha: 0.6)]),
-          ),
-          child: Stack(
-            alignment: Alignment.bottomCenter,
-            children: [
-              Center(child: Icon(Icons.eco_rounded, color: Colors.white.withValues(alpha: 0.25), size: 28)),
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(post.imageUrl ?? 'assets/images/posts/${post.id}.jpg'),
+          fit: BoxFit.cover,
+        ),
+      ),
+      child: Stack(
+        alignment: Alignment.bottomCenter,
+        children: [
               Container(
                 padding: const EdgeInsets.symmetric(vertical: 3, horizontal: 4),
                 color: Colors.black.withValues(alpha: 0.4),

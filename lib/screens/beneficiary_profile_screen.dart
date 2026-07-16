@@ -59,14 +59,11 @@ class _BeneficiaryProfileScreenState extends State<BeneficiaryProfileScreen> wit
             expandedHeight: 160,
             pinned: true,
             flexibleSpace: FlexibleSpaceBar(
-              background: Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: [color, color.withValues(alpha: 0.6)],
-                  ),
-                ),
+              background: Image.asset(
+                user.coverUrl.isNotEmpty
+                    ? user.coverUrl
+                    : 'assets/images/covers/${user.id}.jpg',
+                fit: BoxFit.cover,
               ),
             ),
           ),
@@ -77,31 +74,33 @@ class _BeneficiaryProfileScreenState extends State<BeneficiaryProfileScreen> wit
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Column(
                   children: [
-                    CircleAvatar(
-                      radius: 36,
-                      backgroundColor: Colors.white,
-                      child: CircleAvatar(
-                        radius: 33,
-                        backgroundColor: color.withValues(alpha: 0.2),
-                        child: Stack(
-                          children: [
-                            Text(user.name[0],
-                              style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold, color: color)),
-                            if (user.isVerified)
-                              Positioned(
-                                bottom: 0, right: -4,
-                                child: Container(
-                                  padding: const EdgeInsets.all(2),
-                                  decoration: const BoxDecoration(
-                                    color: Colors.white,
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Icon(Icons.verified_rounded, size: 12, color: color),
-                                ),
-                              ),
-                          ],
+                    Stack(
+                      children: [
+                        CircleAvatar(
+                          radius: 36,
+                          backgroundColor: Colors.white,
+                          child: CircleAvatar(
+                            radius: 33,
+                            backgroundImage: AssetImage(
+                              user.avatarUrl.isNotEmpty
+                                  ? user.avatarUrl
+                                  : 'assets/images/avatars/${user.id}.png',
+                            ),
+                          ),
                         ),
-                      ),
+                        if (user.isVerified)
+                          Positioned(
+                            bottom: 0, right: -4,
+                            child: Container(
+                              padding: const EdgeInsets.all(2),
+                              decoration: const BoxDecoration(
+                                color: Colors.white,
+                                shape: BoxShape.circle,
+                              ),
+                              child: Icon(Icons.verified_rounded, size: 12, color: color),
+                            ),
+                          ),
+                      ],
                     ),
                     const SizedBox(height: 6),
                     Text(user.name,
@@ -263,12 +262,14 @@ class _BeneficiaryProfileScreenState extends State<BeneficiaryProfileScreen> wit
         final post = items[index];
         return Container(
           decoration: BoxDecoration(
-            gradient: LinearGradient(colors: [color, color.withValues(alpha: 0.6)]),
+            image: DecorationImage(
+              image: AssetImage(post.imageUrl ?? 'assets/images/posts/${post.id}.jpg'),
+              fit: BoxFit.cover,
+            ),
           ),
           child: Stack(
             alignment: Alignment.bottomCenter,
             children: [
-              Center(child: Icon(Icons.eco_rounded, color: Colors.white.withValues(alpha: 0.25), size: 28)),
               Container(
                 padding: const EdgeInsets.symmetric(vertical: 3, horizontal: 4),
                 color: Colors.black.withValues(alpha: 0.4),

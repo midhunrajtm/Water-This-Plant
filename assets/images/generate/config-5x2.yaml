@@ -1,0 +1,14 @@
+bot: midjourney
+album: wtp-covers
+download: true
+upscale: true
+variation: false
+thumbnail: true
+suffix: " --ar 5:2 --style raw --v 6.1"
+prompt:
+  - Wide-angle nature landscape, calm river winding through lush green valley at sunrise, mist rising from water, soft warm light, greens golds and soft blues --s 250
+  - Bustling open-air market in a West African village, colorful fabric stalls, baskets of produce, women in vibrant clothing, warm afternoon sunlight, authentic lively community --s 250
+  - Construction scene with community members helping build a school, bricks and scaffolding, smiling workers of all ages, bright sunlight blue sky, progress and collaboration --s 250
+  - Sweeping view of terraced farm fields on a hillside in Kenya, rows of lush green crops, solar panel visible, dramatic sky at golden hour --s 250
+  - Colorful mural wall in progress, abstract geometric design in vibrant blues greens and golds, paint cans and brushes at base, street art atmosphere --s 250
+  - Wide shot of school playground with children in uniform playing, new building with signage visible, clear African sky, happy aspirational --s 250

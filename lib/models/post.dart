@@ -14,6 +14,7 @@ class Post {
   final String type;
   final String? causeId;
   final String? causeTitle;
+  final String? imageUrl;
 
   Post({
     required this.id,
@@ -31,5 +32,6 @@ class Post {
     this.type = 'photo',
     this.causeId,
     this.causeTitle,
+    this.imageUrl,
   });
 }

@@ -100,8 +100,11 @@ class _CreatePostScreenState extends State<CreatePostScreen> {
               children: [
                 CircleAvatar(
                   radius: 20,
-                  backgroundColor: const Color(0xFF0D9488).withValues(alpha: 0.2),
-                  child: Text(user.name[0], style: const TextStyle(color: Color(0xFF0D9488), fontWeight: FontWeight.bold)),
+                  backgroundImage: AssetImage(
+                    user.avatarUrl.isNotEmpty
+                        ? user.avatarUrl
+                        : 'assets/images/avatars/${user.id}.png',
+                  ),
                 ),
                 const SizedBox(width: 10),
                 Column(

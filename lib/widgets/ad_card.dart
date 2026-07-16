@@ -16,16 +16,6 @@ class AdCard extends StatelessWidget {
     }
   }
 
-  IconData _categoryIcon(String cat) {
-    switch (cat) {
-      case 'community': return Icons.eco_rounded;
-      case 'environment': return Icons.eco_rounded;
-      case 'agriculture': return Icons.grass_rounded;
-      case 'relief': return Icons.volunteer_activism_rounded;
-      default: return Icons.eco_rounded;
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     final color = _categoryColor(ad.category);
@@ -73,14 +63,23 @@ class AdCard extends StatelessWidget {
               height: 140,
               width: double.infinity,
               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [color.withValues(alpha: 0.8), color.withValues(alpha: 0.4)],
+                image: DecorationImage(
+                  image: AssetImage(ad.imageUrl ?? 'assets/images/ads/${ad.id}.jpg'),
+                  fit: BoxFit.cover,
                 ),
               ),
               child: Stack(
                 alignment: Alignment.center,
                 children: [
-                  Icon(_categoryIcon(ad.category), size: 56, color: Colors.white.withValues(alpha: 0.3)),
+                  Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [Colors.transparent, Colors.black.withValues(alpha: 0.3)],
+                      ),
+                    ),
+                  ),
                   Positioned(
                     bottom: 12,
                     child: Container(

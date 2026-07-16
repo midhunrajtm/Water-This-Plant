@@ -4,6 +4,7 @@ class Ad {
   final String description;
   final String category;
   final String ctaText;
+  final String? imageUrl;
 
   const Ad({
     required this.id,
@@ -11,5 +12,6 @@ class Ad {
     required this.description,
     this.category = 'community',
     this.ctaText = 'Learn More',
+    this.imageUrl,
   });
 }

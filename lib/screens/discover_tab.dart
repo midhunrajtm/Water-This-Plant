@@ -112,7 +112,6 @@ class _DiscoverTabState extends State<DiscoverTab> {
                 itemCount: MockData.users.length,
                 itemBuilder: (context, index) {
                   final user = MockData.users[index];
-                  final color = const Color(0xFF0D9488);
                   return GestureDetector(
                     onTap: () => Navigator.push(context,
                       MaterialPageRoute(builder: (_) => BeneficiaryProfileScreen(userId: user.id))),
@@ -125,9 +124,9 @@ class _DiscoverTabState extends State<DiscoverTab> {
                             children: [
                               CircleAvatar(
                                 radius: 30,
-                                backgroundColor: color.withValues(alpha: 0.2),
-                                child: Text(user.name[0],
-                                  style: TextStyle(color: color, fontWeight: FontWeight.bold, fontSize: 24)),
+                                backgroundImage: AssetImage(user.avatarUrl.isNotEmpty
+                                    ? user.avatarUrl
+                                    : 'assets/images/avatars/${user.id}.png'),
                               ),
                               if (user.isVerified)
                                 Positioned(
@@ -174,22 +173,16 @@ class _DiscoverTabState extends State<DiscoverTab> {
               ),
               itemBuilder: (context, index) {
                 final post = _filteredPosts[index];
-    Color color;
-    switch (post.category) {
-      case 'community': color = const Color(0xFF0D9488); break;
-      case 'environment': color = const Color(0xFF059669); break;
-      case 'agriculture': color = const Color(0xFFD97706); break;
-      case 'relief': color = const Color(0xFFDC2626); break;
-      default: color = const Color(0xFF0D9488);
-    }
-                return Container(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(colors: [color, color.withValues(alpha: 0.6)]),
-                    borderRadius: BorderRadius.circular(4),
-                  ),
-                  child: Stack(
-                    children: [
-                      Center(child: Icon(Icons.eco_rounded, color: Colors.white.withValues(alpha: 0.25), size: 24)),
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(post.imageUrl ?? 'assets/images/posts/${post.id}.jpg'),
+          fit: BoxFit.cover,
+        ),
+        borderRadius: BorderRadius.circular(4),
+      ),
+      child: Stack(
+        children: [
                       if (post.type == 'reel')
                         Positioned(
                           bottom: 4, right: 4,

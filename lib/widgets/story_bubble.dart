@@ -20,7 +20,6 @@ class StoryBubble extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final color = _categoryColor(story.category);
-    final initials = story.userName.split(' ').map((w) => w[0]).take(2).join();
 
     return GestureDetector(
       onTap: onTap,
@@ -47,23 +46,11 @@ class StoryBubble extends StatelessWidget {
                   shape: BoxShape.circle,
                 ),
                 padding: const EdgeInsets.all(3),
-                child: Container(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [color, color.withValues(alpha: 0.7)],
-                    ),
-                    shape: BoxShape.circle,
-                  ),
-                  child: Center(
-                    child: Text(
-                      initials,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
+                child: CircleAvatar(
+                  radius: 30,
+                  backgroundImage: story.imageUrl != null
+                      ? AssetImage(story.imageUrl!)
+                      : AssetImage('assets/images/stories/${story.id}.jpg'),
                 ),
               ),
             ),

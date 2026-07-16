@@ -1,0 +1,18 @@
+bot: midjourney
+album: wtp-wide
+download: true
+upscale: true
+variation: false
+thumbnail: true
+suffix: " --ar 3:1 --style raw --v 6.1"
+prompt:
+  - Construction of a community center building in Burkina Faso, concrete foundation and rebar, smiling workers, bright sunlight, red earth, community development photography --s 250
+  - Neatly arranged table covered with colorful school supplies, notebooks pencils backpacks rulers, bright organized generous, warm overhead light, flat lay --s 250
+  - Diverse young people sitting in a circle outdoors engaged in discussion, whiteboard visible with brainstorming notes, energetic optimistic leadership training --s 250
+  - Empty wooden bookshelves awaiting books in a room with sunlight streaming through a window, freshly painted walls, potential and hope for knowledge --s 250
+  - Graduation cap being tossed in the air against a bright blue sky, silhouettes of celebrating students, achievement and future, backlit --s 250
+  - Volunteers packing food boxes in a warehouse, canned goods rice dried beans arranged neatly, hands working together, compassion organization urgency --s 250
+  - Small freshly painted clinic building with a red cross sign in a rural landscape, a health worker stands at the entrance, clean welcoming healthcare --s 250
+  - Smartphone mockup held in a hand showing a social media app home screen, floating green leaf icons and text 10K creators, white desk with small potted plant, tech product shot --s 250
+  - Professional handshake between two people in business attire, blurred background of a community project with building and plants, warm trustworthy corporate-responsibility aesthetic --s 250
+  - Gold and emerald premium membership card with a leaf icon floating above a smartphone screen, sparkle effects, watermarked PREMIUM text, luxurious nature-inspired fintech aesthetic --s 250

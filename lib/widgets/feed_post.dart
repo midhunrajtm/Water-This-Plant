@@ -24,16 +24,6 @@ class _FeedPostState extends State<FeedPost> {
     _isSaved = widget.post.isSaved;
   }
 
-  Color _catColor(String cat) {
-    switch (cat) {
-      case 'community': return const Color(0xFF0D9488);
-      case 'environment': return const Color(0xFF059669);
-      case 'agriculture': return const Color(0xFFD97706);
-      case 'relief': return const Color(0xFFDC2626);
-      default: return const Color(0xFF0D9488);
-    }
-  }
-
   IconData _typeIcon(String type) {
     switch (type) {
       case 'photo': return Icons.photo_camera_outlined;
@@ -62,8 +52,6 @@ class _FeedPostState extends State<FeedPost> {
 
   @override
   Widget build(BuildContext context) {
-    final color = _catColor(widget.post.category);
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -71,15 +59,13 @@ class _FeedPostState extends State<FeedPost> {
           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
           child: Row(
             children: [
-              GestureDetector(
-                onTap: widget.onAvatarTap,
-                child: CircleAvatar(
-                  radius: 18,
-                  backgroundColor: color.withValues(alpha: 0.2),
-                  child: Text(widget.post.userName[0],
-                    style: TextStyle(color: color, fontWeight: FontWeight.bold, fontSize: 16)),
+                GestureDetector(
+                  onTap: widget.onAvatarTap,
+                  child: CircleAvatar(
+                    radius: 18,
+                    backgroundImage: AssetImage('assets/images/avatars/${widget.post.userId}.png'),
+                  ),
                 ),
-              ),
               const SizedBox(width: 10),
               GestureDetector(
                 onTap: widget.onAvatarTap,
@@ -121,16 +107,16 @@ class _FeedPostState extends State<FeedPost> {
           child: Container(
             width: double.infinity,
             decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [color, color.withValues(alpha: 0.6)],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-              ),
+              image: widget.post.imageUrl != null
+                  ? DecorationImage(image: AssetImage(widget.post.imageUrl!), fit: BoxFit.cover)
+                  : DecorationImage(
+                      image: AssetImage('assets/images/posts/${widget.post.id}.jpg'),
+                      fit: BoxFit.cover,
+                    ),
             ),
             child: Stack(
               alignment: Alignment.center,
               children: [
-                Icon(_typeIcon(widget.post.type), size: 64, color: Colors.white.withValues(alpha: 0.3)),
                 if (widget.post.type == 'reel')
                   Positioned(
                     right: 12,

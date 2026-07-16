@@ -5,6 +5,7 @@ class Story {
   final String category;
   bool isViewed;
   final DateTime postedAt;
+  final String? imageUrl;
 
   Story({
     required this.id,
@@ -13,5 +14,6 @@ class Story {
     this.category = 'community',
     this.isViewed = false,
     required this.postedAt,
+    this.imageUrl,
   });
 }
