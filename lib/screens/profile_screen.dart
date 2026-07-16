@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:water_this_plant/data/mock_data.dart';
 import 'package:water_this_plant/models/user.dart';
 import 'package:water_this_plant/models/post.dart';
+import 'package:water_this_plant/screens/settings_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -50,8 +51,8 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
             onPressed: () {},
           ),
           IconButton(
-            icon: const Icon(Icons.menu_rounded, color: Color(0xFF0F172A)),
-            onPressed: () {},
+            icon: const Icon(Icons.settings_rounded, color: Color(0xFF0F172A)),
+            onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const SettingsScreen())),
           ),
         ],
       ),
