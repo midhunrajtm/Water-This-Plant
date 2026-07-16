@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:water_this_plant/data/mock_data.dart';
 import 'package:water_this_plant/models/story.dart';
 
 class StoryBubble extends StatelessWidget {
@@ -20,6 +21,7 @@ class StoryBubble extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final color = _categoryColor(story.category);
+    final user = MockData.userById(story.userId);
 
     return GestureDetector(
       onTap: onTap,
@@ -48,9 +50,11 @@ class StoryBubble extends StatelessWidget {
                 padding: const EdgeInsets.all(3),
                 child: CircleAvatar(
                   radius: 30,
-                  backgroundImage: story.imageUrl != null
-                      ? AssetImage(story.imageUrl!)
-                      : AssetImage('assets/images/stories/${story.id}.jpg'),
+                  backgroundImage: AssetImage(
+                    user.avatarUrl.isNotEmpty
+                        ? user.avatarUrl
+                        : 'assets/images/avatars/${user.id}.jpg',
+                  ),
                 ),
               ),
             ),
