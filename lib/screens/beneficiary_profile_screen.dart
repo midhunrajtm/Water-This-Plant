@@ -59,11 +59,14 @@ class _BeneficiaryProfileScreenState extends State<BeneficiaryProfileScreen> wit
             expandedHeight: 160,
             pinned: true,
             flexibleSpace: FlexibleSpaceBar(
-              background: Image.asset(
-                user.coverUrl.isNotEmpty
-                    ? user.coverUrl
-                    : 'assets/images/covers/${user.id}.jpg',
-                fit: BoxFit.cover,
+              background: Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [color, color.withValues(alpha: 0.6)],
+                  ),
+                ),
               ),
             ),
           ),
@@ -84,7 +87,7 @@ class _BeneficiaryProfileScreenState extends State<BeneficiaryProfileScreen> wit
                             backgroundImage: AssetImage(
                               user.avatarUrl.isNotEmpty
                                   ? user.avatarUrl
-                                  : 'assets/images/avatars/${user.id}.png',
+                                  : 'assets/images/avatars/${user.id}.jpg',
                             ),
                           ),
                         ),

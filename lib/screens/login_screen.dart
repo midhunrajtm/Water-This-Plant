@@ -36,52 +36,52 @@ class _LoginScreenState extends State<LoginScreen> {
             Container(
               height: 340,
               width: double.infinity,
-              decoration: BoxDecoration(
-                image: const DecorationImage(
-                  image: AssetImage('assets/images/brand/login_bg.jpg'),
-                  fit: BoxFit.cover,
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [Color(0xFF0D9488), Color(0xFF059669)],
                 ),
-                borderRadius: const BorderRadius.only(
+                borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(40),
                   bottomRight: Radius.circular(40),
                 ),
               ),
-              child: Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: [Colors.black.withValues(alpha: 0.2), Colors.black.withValues(alpha: 0.5)],
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const SizedBox(height: 60),
+                  Container(
+                    width: 90,
+                    height: 90,
+                    decoration: BoxDecoration(
+                      color: Colors.white.withValues(alpha: 0.2),
+                      shape: BoxShape.circle,
+                    ),
+                    child: const Icon(
+                      Icons.eco_rounded,
+                      size: 50,
+                      color: Colors.white,
+                    ),
                   ),
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const SizedBox(height: 60),
-                    Image.asset(
-                      'assets/images/brand/logo.png',
-                      width: 90,
-                      height: 90,
+                  const SizedBox(height: 20),
+                  const Text(
+                    'Water This Plant',
+                    style: TextStyle(
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
                     ),
-                    const SizedBox(height: 20),
-                    const Text(
-                      'Water This Plant',
-                      style: TextStyle(
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    'Where Every Scroll Creates Impact',
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: Colors.white.withValues(alpha: 0.85),
                     ),
-                    const SizedBox(height: 8),
-                    Text(
-                      'Where Every Scroll Creates Impact',
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.white.withValues(alpha: 0.85),
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
             const SizedBox(height: 32),

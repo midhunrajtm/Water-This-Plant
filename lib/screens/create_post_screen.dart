@@ -103,7 +103,7 @@ class _CreatePostScreenState extends State<CreatePostScreen> {
                   backgroundImage: AssetImage(
                     user.avatarUrl.isNotEmpty
                         ? user.avatarUrl
-                        : 'assets/images/avatars/${user.id}.png',
+                        : 'assets/images/avatars/${user.id}.jpg',
                   ),
                 ),
                 const SizedBox(width: 10),

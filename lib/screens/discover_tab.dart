@@ -126,7 +126,7 @@ class _DiscoverTabState extends State<DiscoverTab> {
                                 radius: 30,
                                 backgroundImage: AssetImage(user.avatarUrl.isNotEmpty
                                     ? user.avatarUrl
-                                    : 'assets/images/avatars/${user.id}.png'),
+                                    : 'assets/images/avatars/${user.id}.jpg'),
                               ),
                               if (user.isVerified)
                                 Positioned(

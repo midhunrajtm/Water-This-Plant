@@ -63,7 +63,7 @@ class _FeedPostState extends State<FeedPost> {
                   onTap: widget.onAvatarTap,
                   child: CircleAvatar(
                     radius: 18,
-                    backgroundImage: AssetImage('assets/images/avatars/${widget.post.userId}.png'),
+                    backgroundImage: AssetImage('assets/images/avatars/${widget.post.userId}.jpg'),
                   ),
                 ),
               const SizedBox(width: 10),

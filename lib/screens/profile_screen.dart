@@ -69,7 +69,7 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
                         radius: 40,
                         backgroundImage: AssetImage(user.avatarUrl.isNotEmpty
                             ? user.avatarUrl
-                            : 'assets/images/avatars/${user.id}.png'),
+                            : 'assets/images/avatars/${user.id}.jpg'),
                       ),
                       const SizedBox(width: 24),
                       Expanded(
